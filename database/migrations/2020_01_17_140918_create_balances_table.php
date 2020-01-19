@@ -17,6 +17,7 @@ class CreateBalancesTable extends Migration
             $table->bigIncrements('id');
             $table->double('total');
             $table->integer('user_id');
+            $table->string('phone');
             $table->string('operator_id');
             $table->timestamps();
         });

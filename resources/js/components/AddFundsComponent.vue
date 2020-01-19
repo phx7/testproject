@@ -35,8 +35,11 @@
         },
         methods: {
             addFunds(){
-                console.log(this.operator);
-                console.log(this.funds);
+                this.funds.operator = this.operator;
+                let uri = '/api/post/funds';
+                this.axios.post(uri, this.funds).then((response) => {
+                    this.$router.push({name: 'posts'});
+                });
             }
         }
     }

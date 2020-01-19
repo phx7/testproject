@@ -2005,8 +2005,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addFunds: function addFunds() {
-      console.log(this.operator);
-      console.log(this.funds);
+      var _this = this;
+
+      this.funds.operator = this.operator;
+      var uri = '/api/post/funds';
+      this.axios.post(uri, this.funds).then(function (response) {
+        _this.$router.push({
+          name: 'posts'
+        });
+      });
     }
   }
 });
@@ -35960,8 +35967,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/testproject/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/testproject/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\OSPanel\domains\testproject\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\testproject\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
