@@ -13,6 +13,7 @@ class PostController extends Controller
         $funds = $request->get('amount');
         $operatorName = $request->get('operator');
         $phone = $request->get('phone');
+        $userId = $request->get('user_id');
         /** @var Operator $operator */
         if (!$operator = Operator::all()->firstWhere('name', '=', $operatorName)) {
             return response()->json('Operator not found', 404);
@@ -25,7 +26,7 @@ class PostController extends Controller
                 'total' => 0,
                 'phone' => $phone,
                 'operator_id' => $operator->id,
-                'user_id' => 1
+                'user_id' => $userId
             ]);
         }
         $balance->total += $funds;
@@ -37,15 +38,21 @@ class PostController extends Controller
 
     public function getFunds(Request $request)
     {
-        $operatorId = $request->get('operator');
+        $operatorName = $request->get('operator');
+        $phone = $request->get('phone');
         $userId = $request->get('user_id');
 
+        /** @var Operator $operator */
+        if (!$operator = Operator::all()->firstWhere('name', '=', $operatorName)) {
+            return response()->json('Operator not found', 404);
+        }
         /** @var Balance $balance */
         $balance = Balance::all()
             ->where('user_id', '=', $userId)
-            ->where('operator_id', '=', $operatorId)
+            ->where('operator_id', '=', $operator->id)
+            ->where('phone', '=', $phone)
             ->first();
 
-        return response()->json($balance);
+        return response()->json($balance->total);
     }
 }

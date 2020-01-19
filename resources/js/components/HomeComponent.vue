@@ -2,18 +2,18 @@
   <div class="row justify-content-center">
       <div class="col-md-8">
           <div class="card card-default">
-              <center>
+              <div style="text-align: center;">
                   <h1>Home</h1>
-              </center>
+              </div>
 
               <div class="card-body">
-                  <center>
+                  <div style="text-align: center;">
                       Select operator:
-                      <button @click="$router.push('addFunds/beeline')">Beeline</button>
-                      <button @click="$router.push('addFunds/mts')">Mts</button>
-                      <button @click="$router.push('addFunds/yota')">Yota</button>
-                      <button @click="$router.push('addFunds/vodafone')">Vodafone</button>
-                  </center>
+                      <button class="btn btn-primary" @click="$router.push('addFunds/beeline')">Beeline</button>
+                      <button class="btn btn-primary" @click="$router.push('addFunds/mts')">Mts</button>
+                      <button class="btn btn-primary" @click="$router.push('addFunds/yota')">Yota</button>
+                      <button class="btn btn-primary" @click="$router.push('addFunds/vodafone')">Vodafone</button>
+                  </div>
               </div>
           </div>
       </div>

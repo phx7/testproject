@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/post/funds', 'PostController@addFunds');
-Route::get('/post/funds', 'PostController@getFunds');
+Route::post('/post/addFunds', 'PostController@addFunds');
+Route::post('/post/getFunds', 'PostController@getFunds');
