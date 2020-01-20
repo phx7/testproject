@@ -22,7 +22,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Add amount:</label>
-                        <input v-model="funds.amount" v-money={} class="form-control" />
+                        <input type="tel" v-model="funds.amount" v-money={} class="form-control" />
                     </div>
                 </div>
             </div><br />
