@@ -14,8 +14,7 @@ class OperatorsTableSeeder extends Seeder
     {
         // operators
         Operator::create(['name' => 'beeline']);
-        Operator::create(['name' => 'vodafone']);
-        Operator::create(['name' => 'yota']);
         Operator::create(['name' => 'mts']);
+        Operator::create(['name' => 'megafon']);
     }
 }

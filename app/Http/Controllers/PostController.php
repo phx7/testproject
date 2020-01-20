@@ -52,6 +52,9 @@ class PostController extends Controller
             ->where('operator_id', '=', $operator->id)
             ->where('phone', '=', $phone)
             ->first();
+        if (!$balance) {
+            return response()->json(0);
+        }
 
         return response()->json($balance->total);
     }
