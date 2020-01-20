@@ -27,7 +27,7 @@
                 </div>
             </div><br />
             <div class="form-group">
-                <button :disabled="btnEnabled" class="btn btn-primary">Add funds</button>
+                <button :disabled="btnDisabled" class="btn btn-primary">Add funds</button>
             </div>
         </form>
     </div>
