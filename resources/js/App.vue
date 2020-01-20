@@ -10,6 +10,7 @@
         <transition name="fade">
             <router-view></router-view>
         </transition>
+        <notifications position="bottom center" group="foo" />
     </div>
 </template>
 

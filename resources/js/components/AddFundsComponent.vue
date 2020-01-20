@@ -27,7 +27,7 @@
                 </div>
             </div><br />
             <div class="form-group">
-                <button class="btn btn-primary">Add funds</button>
+                <button :disabled="btnEnabled" class="btn btn-primary">Add funds</button>
             </div>
         </form>
     </div>
@@ -38,11 +38,13 @@
         props: ['operator'],
         data(){
             return {
-                funds:{}
+                funds:{},
+                btnDisabled: false,
             }
         },
         methods: {
             addFunds(){
+                this.btnDisabled = true;
                 let input = {
                     amount: this.funds.amount.toString().replace(/[^0-9.]/g, ''),
                     phone: this.funds.phone.match(/\d+/g).join(''),
@@ -51,6 +53,12 @@
                 };
                 let uri = '/api/post/addFunds';
                 this.axios.post(uri, input).then((response) => {
+                    this.$notify({
+                        group: 'foo',
+                        title: 'Success',
+                        text: 'Funds added successfully'
+                    });
+                    this.btnDisabled = false;
                     this.$router.push({name: 'home'});
                 });
             },
@@ -63,8 +71,6 @@
                 if (input.phone.length === 11) {
                     let uri = '/api/post/getFunds';
                     this.axios.post(uri, input).then((response) => {
-                        console.log(response.status);
-                        console.log(response.data);
                         if (response.status === 200) {
                             this.funds.total = parseFloat(response.data);
                         }

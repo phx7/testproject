@@ -3,6 +3,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import VueTheMask from 'vue-the-mask'
+import Notifications from 'vue-notification'
 import money from 'v-money'
 import VueAxios from 'vue-axios';
 import axios from 'axios';
@@ -14,6 +15,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(VueAxios, axios);
 Vue.use(VueTheMask, {masked: false});
+Vue.use(Notifications);
 Vue.use(money, {precision: 2, thousands: ' ', prefix: '$', masked: false});
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
