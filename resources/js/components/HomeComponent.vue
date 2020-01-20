@@ -9,10 +9,10 @@
               <div class="card-body">
                   <div style="text-align: center;">
                       Select operator:
+                      <br>
                       <button class="btn btn-primary" @click="$router.push('addFunds/beeline')">Beeline</button>
                       <button class="btn btn-primary" @click="$router.push('addFunds/mts')">Mts</button>
-                      <button class="btn btn-primary" @click="$router.push('addFunds/yota')">Yota</button>
-                      <button class="btn btn-primary" @click="$router.push('addFunds/vodafone')">Vodafone</button>
+                      <button class="btn btn-primary" @click="$router.push('addFunds/megafon')">Megafon</button>
                   </div>
               </div>
           </div>
